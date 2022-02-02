@@ -16,7 +16,9 @@
 // console.log(mainHeader);
 // mainHeader.style.borderBottom = 'solid 3px #000';
 
-var item1 = document.getElementById('item-header');
-item1.style.color = 'green';
-item1.style.fontSize = 'bold';
+// var item1 = document.getElementById('item-header');
+// item1.style.color = 'green';
+// item1.style.fontSize = 'bold';
+
+
 
