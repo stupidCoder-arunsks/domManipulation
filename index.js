@@ -23,8 +23,12 @@
 // << GET ELEMENT BY CLASSNAME >>
 
 
-var item = document.getElementsByClassName('itemTwo');
-console.log(item);
+// var items = document.getElementsByClassName('itemTwo');
+// console.log(items);
+// items[0].style.backgroundColor = 'red';
+// items[0].style.backgroundColor = 'red';
+// btn.value = 'submit all';
+
 // item[0].getElementsByClassName.backgroundColor = 'red';
 
 // items[1].textContent = 'hello';
@@ -52,9 +56,9 @@ console.log(item);
 // liWithClassName.style.backgroundColor = 'red';
 // liWithClassName.
 
-var liWithTagName = document.getElementsByTagName('li');
-console.log(liWithTagName);
-liWithTagName[4].style.backgroundColor = 'yellow';
+// var liWithTagName = document.getElementsByTagName('li');
+// console.log(liWithTagName);
+// liWithTagName[4].style.backgroundColor = 'yellow';
 
 // li[1].textContent = 'hello';
 // li[1].style.fontWeight = 'bold';
@@ -72,8 +76,11 @@ liWithTagName[4].style.backgroundColor = 'yellow';
 // var lastItem = document.querySelector('.item:last-child');
 // lastItem.textContent = 'last one';
 
-// var secondItem = document.querySelector('.item:nth-child(2)');
-// secondItem.textContent = 'second one';
+var secondItem = document.querySelector('.item:nth-child(2)');
+secondItem.style.backgroundColor = 'green';
+
+var thirdItem = document.querySelector('.item:nth-child(3)');
+thirdItem.style.display = 'none';
 
 // var input = document.querySelector('input');
 // input.value = 'arunsks';
@@ -90,10 +97,10 @@ liWithTagName[4].style.backgroundColor = 'yellow';
 //  var li = document.querySelectorAll('li');
 //  console.log(li);
 
-//  var odd = document.querySelectorAll('li:nth-child(odd)');
+ var odd = document.querySelectorAll('li:nth-child(odd)');
 //  var even = document.querySelectorAll('li:nth-child(even'); 
 
-//  for(var i=0;i < odd.length;i++){
-//      odd[i].style.backgroundColor = 'red';
-//      even[i].style.backgroundColor = 'yellow';
-//  }
+ for(var i=0;i < odd.length;i++){
+     odd[i].style.backgroundColor = 'green';
+     
+ }
