@@ -23,18 +23,19 @@
 // << GET ELEMENT BY CLASSNAME >>
 
 
-var items = document.getElementsByClassName('item');
-console.log(items);
+var item = document.getElementsByClassName('itemTwo');
+console.log(item);
+// item[0].getElementsByClassName.backgroundColor = 'red';
 
 // items[1].textContent = 'hello';
 // items[1].style.fontWeight = 'bold';
-items[1].style.backgroundColor = 'green';
+// items[1].style.backgroundColor = 'green';
 
 // items.style.backgroundColor = 'yellow';
 
-for(var i=0;i < items.length;i++){
-    items[i].style.fontWeight = 'bold';
-}
+// for(var i=0;i < items.length;i++){
+//     items[i].style.fontWeight = 'bold';
+// }
 
 
 // items[1].style.backgroundColor = 'red';
@@ -43,8 +44,17 @@ for(var i=0;i < items.length;i++){
 
 // << Getting element by the tag name >>
 
-// var li = document.getElementsByTagName('li');
-// console.log(li);
+// var liWithClassName = document.getElementsByClassName('itemTwo');
+// console.log(liWithClassName);
+// liWithClassName.style.backgroundColor = 'red';
+
+// liWithClassName.style.backgroundColor = 'red';
+// liWithClassName.style.backgroundColor = 'red';
+// liWithClassName.
+
+var liWithTagName = document.getElementsByTagName('li');
+console.log(liWithTagName);
+liWithTagName[4].style.backgroundColor = 'yellow';
 
 // li[1].textContent = 'hello';
 // li[1].style.fontWeight = 'bold';
