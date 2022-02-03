@@ -172,6 +172,8 @@
 // localStorage.setItem('email' , 'email@email.com');
 // localStorage.removeItem('name');
 
+// Adding data to localstorage task 10
+
 var form = document.getElementById('my-form');
 
 form.addEventListener('submit' , addLocalStorage);
@@ -185,8 +187,49 @@ function addLocalStorage(e){
 
     console.log(name , email);
 
-    localStorage.setItem('name' , name);
-    localStorage.setItem('email' , email);
+
+    // Adding data to local storage in the form of obj
+
+let myObj = {
+    'name': name,
+    'email': email
+};
+
+console.log(myObj);
+
+let myObj_serialiazable = JSON.stringify(myObj);
+
+localStorage.setItem('myObj' , myObj_serialiazable);
+console.log(localStorage.getItem('myObj'));
+
+let myObj_deSerializable = JSON.parse(localStorage.getItem('myObj'));
+console.log(myObj_deSerializable);
+
+var user = document.getElementById('user-name');
+var email = document.getElementById('user-email');
+
+user.textContent = myObj_deSerializable.name;
+email.textContent = myObj_deSerializable.email;
 
 }
+//   let userName = document.getElementById('name').value;
+// let email = document.getElementById('email').value;
+
+
+// adding data to local storage in the form of obj
+// let myObj = {
+//     'name': userName,
+//     'email': email
+// };
+
+// console.log(myObj);
+
+// let myObj_serialiazable = JSON.stringify(myObj);
+
+// localStorage.setItem('myObj' , myObj_serialiazable);
+// console.log(localStorage.getItem('myObj'));
+
+// let myObj_deSerializable = JSON.parse(localStorage.getItem('myObj'));
+// console.log(myObj_deSerializable);
+
 
