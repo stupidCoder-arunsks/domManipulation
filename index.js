@@ -136,15 +136,15 @@ var itemList = document.querySelector('#items');
 
 var newDiv = document.createElement('div');
 
-newDiv.className = 'hello 1';
+// newDiv.className = 'hello 1';
 
-newDiv.id = 'hello 2';
+// newDiv.id = 'hello 2';
 
-newDiv.setAttribute('title' , 'hello div');
+// newDiv.setAttribute('title' , 'hello div');
 
-var newTextNode = document.createTextNode('hello world!');
+// var newTextNode = document.createTextNode('hello world!');
 
-newDiv.appendChild(newTextNode);
+// newDiv.appendChild(newTextNode);
 
 console.log(newDiv);
 
@@ -160,13 +160,13 @@ console.log(newDiv);
 
 // adding before add item
 
-var itemHeader = document.querySelector('#item-header');
-console.log(itemHeader);
+// var itemHeader = document.querySelector('#item-header');
+// console.log(itemHeader);
 
-var itemHeaderParent = itemHeader.parentElement;
-console.log(itemHeaderParent);
+// var itemHeaderParent = itemHeader.parentElement;
+// console.log(itemHeaderParent);
 
-itemHeaderParent.insertBefore(newDiv , itemHeader);
+// itemHeaderParent.insertBefore(newDiv,itemHeader);
 
 
 
