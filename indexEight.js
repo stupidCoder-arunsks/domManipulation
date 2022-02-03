@@ -50,10 +50,19 @@ function addItem(e){
   // add text node to delBtn
   delBtn.appendChild(document.createTextNode(' X'));
 
+
 //   console.log(delBtn);
 
   // append child to deleteBtn
   li.appendChild(delBtn);
+
+  var editBtn = document.createElement('button');
+
+  editBtn.className = 'edit button';
+
+  editBtn.appendChild(document.createTextNode(' edit '));
+
+  li.append(editBtn);
 
  // append li to itemlist
   itemList.appendChild(li);
