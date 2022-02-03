@@ -104,7 +104,6 @@ function addItem(e){
 
   console.log("<< li >> " + li);
 
-
  // append li to itemlist
   itemList.appendChild(li);
 

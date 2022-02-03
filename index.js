@@ -106,7 +106,7 @@
 //  }
 
 
-var itemList = document.querySelector('#items'); 
+// var itemList = document.querySelector('#items'); 
 
 // // parent node and parent element
 // console.log(itemList.parentElement);
@@ -134,7 +134,7 @@ var itemList = document.querySelector('#items');
 
 // create div
 
-var newDiv = document.createElement('div');
+// var newDiv = document.createElement('div');
 
 // newDiv.className = 'hello 1';
 
@@ -146,7 +146,7 @@ var newDiv = document.createElement('div');
 
 // newDiv.appendChild(newTextNode);
 
-console.log(newDiv);
+// console.log(newDiv);
 
 // adding before main header
 
@@ -168,7 +168,25 @@ console.log(newDiv);
 
 // itemHeaderParent.insertBefore(newDiv,itemHeader);
 
+// localStorage.setItem('name' , 'arunsks' + 'email' , 'eamil@com');
+// localStorage.setItem('email' , 'email@email.com');
+// localStorage.removeItem('name');
 
+var form = document.getElementById('my-form');
 
+form.addEventListener('submit' , addLocalStorage);
 
+function addLocalStorage(e){
+
+    e.preventDefault();
+  
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+
+    console.log(name , email);
+
+    localStorage.setItem('name' , name);
+    localStorage.setItem('email' , email);
+
+}
 
