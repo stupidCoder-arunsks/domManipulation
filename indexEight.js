@@ -6,11 +6,37 @@ var form = document.getElementById('addForm');
 // Getting the item id to add an item
 var itemList = document.getElementById('items');
 
+// Getting filter id to get an input
+var filter = document.getElementById('filter');
+
 // adding event listner to form to listen whether the submit is click
 form.addEventListener('submit' , addItem);
 
 //listening to items in the list
 itemList.addEventListener('click' , removeItem);
+
+//listening to filter event
+filter.addEventListener('keyup' , filterItem);
+
+function filterItem(e){
+  
+    //converting text to lower case
+    var text = e.target.value.toLowerCase();
+
+    // getting all the tag element of li
+    var items = document.getElementsByTagName('li');
+   
+    // converting to array
+    Array.from(items).forEach(function(item){
+        var itemName = item.firstChild.textContent;
+        if(itemName.toLowerCase().indexOf(text) != -1){
+           item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    });
+
+}
 
 function removeItem(e){
   if(e.target.classList.contains('delete')){
@@ -25,7 +51,7 @@ function removeItem(e){
 
 function addItem(e){
   e.preventDefault();
-
+  
   // Getting input from user to add an item
   var input = document.getElementById('item').value;
   
@@ -64,6 +90,15 @@ function addItem(e){
 
   li.append(editBtn);
 
+  // adding description to an item
+
+//   var input = document.getElementById('description').value;
+
+//   console.log(input);
+
+//   li.append(input);
+
+
  // append li to itemlist
   itemList.appendChild(li);
 
@@ -71,56 +106,6 @@ function addItem(e){
 
 
 
-// var form = document.getElementById('addForm');
-// var itemList = document.getElementById('items');
-// var filter = document.getElementById('filter');
-
-// // Form submit event
-// form.addEventListener('submit', addItem);
-// // Delete event
-// itemList.addEventListener('click', removeItem);
-// // Filter event
-// filter.addEventListener('keyup', filterItems);
-
-// // Add item
-// function addItem(e){
-//   e.preventDefault();
-
-//   // Get input value
-//   var newItem = document.getElementById('item').value;
-
-//   // Create new li element
-//   var li = document.createElement('li');
-//   // Add class
-//   li.className = 'list-group-item';
-//   // Add text node with input value
-//   li.appendChild(document.createTextNode(newItem));
-
-//   // Create del button element
-//   var deleteBtn = document.createElement('button');
-
-//   // Add classes to del button
-//   deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
-
-//   // Append text node
-//   deleteBtn.appendChild(document.createTextNode('X'));
-
-//   // Append button to li
-//   li.appendChild(deleteBtn);
-
-//   // Append li to list
-//   itemList.appendChild(li);
-// }
-
-// // Remove item
-// function removeItem(e){
-//   if(e.target.classList.contains('delete')){
-//     if(confirm('Are You Sure?')){
-//       var li = e.target.parentElement;
-//       itemList.removeChild(li);
-//     }
-//   }
-// }
 
 // // Filter Items
 // function filterItems(e){
