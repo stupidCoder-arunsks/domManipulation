@@ -82,21 +82,27 @@ function addItem(e){
   // append child to deleteBtn
   li.appendChild(delBtn);
 
-  var editBtn = document.createElement('button');
+  // <<<<<<<<<<<< edit button >>>>>>>>
 
-  editBtn.className = 'edit button';
+//   var editBtn = document.createElement('button');
 
-  editBtn.appendChild(document.createTextNode(' edit '));
+//   editBtn.className = 'edit button';
 
-  li.append(editBtn);
+//   editBtn.appendChild(document.createTextNode(' edit '));
 
-  // adding description to an item
+//   li.appendChild(editBtn);
 
-//   var input = document.getElementById('description').value;
+  // <<<<<<<< adding description to an item >>>>>>>.
 
-//   console.log(input);
+  var input = document.getElementById('description').value;
 
-//   li.append(input);
+  input.className = 'description';
+
+  console.log(input);
+
+  li.appendChild(document.createTextNode(input));
+
+  console.log("<< li >> " + li);
 
 
  // append li to itemlist
