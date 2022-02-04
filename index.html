@@ -78,17 +78,34 @@
       var parentNode = document.getElementById('listOfUsers');
 
       childHtml = `<li id = ${user.email} > ${user.name} ${user.email} 
-                   <button onclick = deleteUser(${user.email})>  Delete  </button>
-                 
+                   <button onclick = deleteUser('${user.email}')> Delete </button>
+                   <button onclick = editUser('${user.email}','${user.name}')>  Edit  </button>
                    </li>`;
-      
-      // console.log(childHtml);
+    
 
       parentNode.innerHTML +=  childHtml;
 
-      // console.log(parentNode.innerHTML);
-       
      }
+
+     function editUser(email, name){
+       console.log("incoming >>> " +email + " " +name);
+       removeItemFromScreen(email);
+
+       if(localStorage.getItem(email)){
+        localStorage.removeItem(email);
+       }
+
+       var labelName = document.getElementById('name');
+       var labelEmail = document.getElementById('email');
+
+       labelName.value = name;
+       labelEmail.value = email;
+      
+      //  console.log("name by element >>> " +labelName + " " +labelEmail);
+
+
+     }
+
 
      function deleteUser(email){
        localStorage.removeItem(email);
@@ -96,12 +113,14 @@
      }
 
      function removeItemFromScreen(email){
-
+            
       var parent = document.getElementById('listOfUsers');
       var element = document.getElementById(email);
       parent.removeChild(element);
 
      }
+
+
    
 
     </script>
