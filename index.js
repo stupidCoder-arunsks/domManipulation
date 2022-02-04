@@ -172,64 +172,72 @@
 // localStorage.setItem('email' , 'email@email.com');
 // localStorage.removeItem('name');
 
-// Adding data to localstorage task 10
+// // Adding data to localstorage task 10
 
-var form = document.getElementById('my-form');
+// var form = document.getElementById('my-form');
 
-form.addEventListener('submit' , addLocalStorage);
+// form.addEventListener('submit' , addLocalStorage);
 
-function addLocalStorage(e){
+// function addLocalStorage(e){
 
-    e.preventDefault();
+//     e.preventDefault();
   
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
+//     var name = document.getElementById('name').value;
+//     var email = document.getElementById('email').value;
 
-    console.log(name , email);
-
-
-    // Adding data to local storage in the form of obj
-
-let myObj = {
-    'name': name,
-    'email': email
-};
-
-console.log(myObj);
-
-let myObj_serialiazable = JSON.stringify(myObj);
-
-localStorage.setItem('myObj' , myObj_serialiazable);
-console.log(localStorage.getItem('myObj'));
-
-let myObj_deSerializable = JSON.parse(localStorage.getItem('myObj'));
-console.log(myObj_deSerializable);
-
-var user = document.getElementById('user-name');
-var email = document.getElementById('user-email');
-
-user.textContent = myObj_deSerializable.name;
-email.textContent = myObj_deSerializable.email;
-
-}
-//   let userName = document.getElementById('name').value;
-// let email = document.getElementById('email').value;
+//     console.log(name , email);
 
 
-// adding data to local storage in the form of obj
+//     // Adding data to local storage in the form of obj
+
 // let myObj = {
-//     'name': userName,
+//     'name': name,
 //     'email': email
 // };
 
-// console.log(myObj);
+// // console.log(myObj);
 
 // let myObj_serialiazable = JSON.stringify(myObj);
 
-// localStorage.setItem('myObj' , myObj_serialiazable);
-// console.log(localStorage.getItem('myObj'));
+// localStorage.setItem(email , myObj_serialiazable);
+// // console.log(localStorage.getItem('myObj'));
 
-// let myObj_deSerializable = JSON.parse(localStorage.getItem('myObj'));
+// let myObj_deSerializable = JSON.parse(localStorage.getItem(email));
 // console.log(myObj_deSerializable);
+
+// var user = document.getElementById('user-name');
+// var email = document.getElementById('user-email');
+
+// user.textContent = myObj_deSerializable.name;
+// email.textContent = myObj_deSerializable.email;
+
+// var label = document.createElement('label');
+// label.className = user;
+// console.log(label);
+ 
+
+
+// }
+
+// for(let i=0;i < localStorage.length;i++){
+//     console.log(localStorage.getItem(localStorage.key(i)[0]));
+// }
+
+// );
+
+// TASK 12
+
+var submitBtn = document.getElementById('submit-btn');
+
+submitBtn.addEventListener('click' , showRegisteredUser);
+
+function showRegisteredUser(event){
+    event.preventDefault();
+    
+    console.log(event);
+
+}
+
+
 
 
