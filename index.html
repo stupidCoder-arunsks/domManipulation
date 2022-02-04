@@ -62,19 +62,47 @@
        };
 
        localStorage.setItem(obj.email , JSON.stringify(obj));
-       showTheRegisteredUserOnScreen(obj);
+       showListOfRegisteredUserOnScreen(obj);
 
      }
 
-    function showTheRegisteredUserOnScreen(user){
+     document.addEventListener('DOMContentLoaded',(event) => {
+      Object.keys(localStorage).forEach(key => {
+        const user = JSON.parse(localStorage.getItem(key))
+        showListOfRegisteredUserOnScreen(user);
+      })
+    })
+
+    function showListOfRegisteredUserOnScreen(user){
 
       var parentNode = document.getElementById('listOfUsers');
 
-      childHtml = `<li> ${user.name} ${user.email} </li>`;
+      childHtml = `<li id = ${user.email} > ${user.name} ${user.email} 
+                   <button onclick = deleteUser(${user.email})>  Delete  </button>
+                 
+                   </li>`;
+      
+      // console.log(childHtml);
 
-      parentNode.innerHTML = parentNode.innerHTML + childHtml;
+      parentNode.innerHTML +=  childHtml;
+
+      // console.log(parentNode.innerHTML);
+       
+     }
+
+     function deleteUser(email){
+       localStorage.removeItem(email);
+       removeItemFromScreen(email);
+     }
+
+     function removeItemFromScreen(email){
+
+      var parent = document.getElementById('listOfUsers');
+      var element = document.getElementById(email);
+      parent.removeChild(element);
 
      }
+   
 
     </script>
 
