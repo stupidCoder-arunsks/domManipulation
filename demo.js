@@ -1,3 +1,5 @@
+// 'use strict';
+
 // console.log("hello");
 
 // console.log("Hello World...")
@@ -81,7 +83,7 @@
 // console.log(b);
 // console.log(c);
 
-// CALL APPLY AND BIND
+//CURRING USING CALL APPLY AND BIND
 
 // var obj = {num:5};
 // var obj2 = {num:20};
@@ -109,32 +111,138 @@
 
 // FUNCTION CURRYING USING BIND
 
-function muliply(x,y){
-    console.log(x*y);
- }
+// function y(){
+//     for(var i=0;i<=5;i++){
+//         setTimeout(() => console.log(i), i * 1000)
+//     }
+//     console.log('Done Coding')
+// }
+   
+// y();
 
- var multipleOfTwo = muliply.bind(this,2);
- multipleOfTwo(3);
+// function a(value) {
+//     return function(value1) {
+//       return value + value1;
+//      }
+//   }
 
+  
+//   var functionOne = a(5);
+//   var functionTwo = functionOne(2);
+  
+//    console.log(functionTwo) // it will print 7
+'use strict';
 
- var multipleOfThree = muliply.bind(this,3);
- multipleOfThree(10);
+// this.table = `window table`;
 
- // FUNCTION CURRYING WITH CLOSURE
+// function cleanTable(soap){
+//     // const that = this;
+//    const innerFunction = (soap) => {
+//         console.log(`cleaning ${this.table} using ${soap}`);  
+//     }
+//     // innerFunction.call(this,soap);
+//     innerFunction(soap);
+// }
 
-let addition = function add(a){
-   return function (b){
-       console.log(a+b);
+// let createRoom = function(name){
+//      this.table = `${name}s table`
+//  }
+
+//  createRoom.prototype.cleanTable = function (soap){
+//         console.log(`cleaning ${this.table} using ${soap}`);  
+// }
+
+// class createRoom {
+//     constructor(name){
+//         this.table = `${name}s table`
+//     }
+//     cleanTable(soap){
+//         console.log(`cleaning ${this.table} using ${soap}`);  
+//     }
+// }
+
+//  const arun = new createRoom('arun');
+//  const kumar = new createRoom(`kumar`);
+//  arun.cleanTable(`some soap`)
+//  kumar.cleanTable(`some soap`)
+
+// console.log(this.table);
+
+// this.Garage = {
+//     table: `Garage table`,
+// };
+
+// this.Hall = {
+//     table: `Hall table`,
+// };
+
+// arun.cleanTable(`some soap`)
+// kumar.cleanTable(`some soap`)
+
+// cleanTable.call(this , "hamam soap");
+// cleanTable.call(this.Garage , "Mysore sandal");
+// cleanTable.call(this.Hall , "super soap");
+// cleanTable.call(arun , `some soap`);
+// cleanTable.call(kumar , `some soap`);
+
+// console.log(this.Garage.table)
+// console.log(this.Hall.table);
+// this.Hall.clean();
+// this.Garage.clean();
+// clean.call(this);
+
+class student {
+
+    static count = 0;
+
+    constructor(name,age,phoneNo,mark){
+        this.name = name;
+        this.age = age;
+        this.phoneNo = phoneNo,
+        this.mark = mark,
+        student.increaseCount();
+    }
+
+    checkingEligibility(){
+     if(this.mark > 40){
+         console.log(`elegible`);
+     }else {
+         console.log('not elegible');
+     }
+   }
+
+   static increaseCount(){
+       student.count++;
+   }
+
+  static getCountOfStudents(){
+       console.log(student.count);
+   }
+
+   setPlacementAge(minimumAgeForPlacement){
+       return  (minMark) => {
+         if(this.mark > minMark && this.age > minimumAgeForPlacement){
+             console.log(`${this.name} elegible for placement`)
+         }else {
+            console.log(`${this.name} not elegible for placement`)
+
+         }
+       }
    }
 }
 
-let additionByTwo = addition(2);
-additionByTwo(5);
+const arun = new student(`arun`,24,12345,42);
+const kumar = new student(`kumar`,26,54321,90);
+const karthi = new student(`karthi`,21,54321,80);
+const ajith = new student(`ajith`,23,536721,30);
+const vijay = new student(`vijay`,28,5432041,80);
 
+arun.checkingEligibility();
+kumar.checkingEligibility();
+student.getCountOfStudents();
+arun.setPlacementAge(18)(40);
 
-
-
-
+// console.log(arun.name)
 
 
  
