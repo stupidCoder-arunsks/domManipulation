@@ -191,61 +191,137 @@
 // this.Garage.clean();
 // clean.call(this);
 
-class student {
+// class student {
 
-    static count = 0;
+//     static count = 0;
 
-    constructor(name,age,phoneNo,mark){
-        this.name = name;
-        this.age = age;
-        this.phoneNo = phoneNo,
-        this.mark = mark,
-        student.increaseCount();
-    }
+//     constructor(name,age,phoneNo,mark){
+//         this.name = name;
+//         this.age = age;
+//         this.phoneNo = phoneNo,
+//         this.mark = mark,
+//         student.increaseCount();
+//     }
 
-    checkingEligibility(){
-     if(this.mark > 40){
-         console.log(`elegible`);
-     }else {
-         console.log('not elegible');
-     }
-   }
+//     checkingEligibility(){
+//      if(this.mark > 40){
+//          console.log(`elegible`);
+//      }else {
+//          console.log('not elegible');
+//      }
+//    }
 
-   static increaseCount(){
-       student.count++;
-   }
+//    static increaseCount(){
+//        student.count++;
+//    }
 
-  static getCountOfStudents(){
-       console.log(student.count);
-   }
+//   static getCountOfStudents(){
+//        console.log(student.count);
+//    }
 
-   setPlacementAge(minimumAgeForPlacement){
-       return  (minMark) => {
-         if(this.mark > minMark && this.age > minimumAgeForPlacement){
-             console.log(`${this.name} elegible for placement`)
-         }else {
-            console.log(`${this.name} not elegible for placement`)
+//    setPlacementAge(minimumAgeForPlacement){
+//        return  (minMark) => {
+//          if(this.mark > minMark && this.age > minimumAgeForPlacement){
+//              console.log(`${this.name} elegible for placement`)
+//          }else {
+//             console.log(`${this.name} not elegible for placement`)
 
-         }
-       }
-   }
-}
+//          }
+//        }
+//    }
+// }
 
-const arun = new student(`arun`,24,12345,42);
-const kumar = new student(`kumar`,26,54321,90);
-const karthi = new student(`karthi`,21,54321,80);
-const ajith = new student(`ajith`,23,536721,30);
-const vijay = new student(`vijay`,28,5432041,80);
+// const arun = new student(`arun`,24,12345,42);
+// const kumar = new student(`kumar`,26,54321,90);
+// const karthi = new student(`karthi`,21,54321,80);
+// const ajith = new student(`ajith`,23,536721,30);
+// const vijay = new student(`vijay`,28,5432041,80);
 
-arun.checkingEligibility();
-kumar.checkingEligibility();
-student.getCountOfStudents();
-arun.setPlacementAge(18)(40);
+// arun.checkingEligibility();
+// kumar.checkingEligibility();
+// student.getCountOfStudents();
+// arun.setPlacementAge(18)(40);
 
 // console.log(arun.name)
 
+// let a = 10;
+// const b = 20;
+// var c = 30;
 
+// function x(){
+//     var x = 100;
+//   function y(){
+//       console.log(x);
+//   }
+//   y();
+// }
+
+// console.log(a);
+// x();
+
+// setTimeout(function one(){
+//     console.log('timer1 expired')
+// },1000)
+
+// setTimeout(function two(){
+//     console.log('timer2 expired')
+// },0)
  
+// // setTimeout(funOne() {
+// //     console.log('timer1 expired'), 1000)}
+
+// // setTimeout(one() => console.log('timer2 expired'), 0)
+
+// function x(y) {
+// console.log('inside x');
+
+// y();
+
+// }
+
+// x(function y(){
+// console.log('inside y')
+
+// })
+
+// setTimeout(() => console.log('timer1 expired'), 1000)
+// setTimeout(() => console.log('timer2 expired'), 0)
+
+// function x(y) {
+// console.log('inside x');
+// y();
+// }
+
+// x(function y(){
+// setTimeout(() => console.log('inside y'), 0)
+// })
+//  var count = 0;
+//  function addEventListenerOnButton(){
+//      let count = 0;
+//     document.getElementById('clickMe')
+//     .addEventListener("click" , function xyz(){
+//         console.log("Button clicked" , ++count);
+//     })
+//  }
+
+//  addEventListenerOnButton();
+
+// console.log('a');
+
+// console.log('b');
+
+// setTimeout(() => console.log('e'), 100)
+// setTimeout(() => console.log('c'), 0)
+
+// console.log('d')
 
 
+// var student = {age:20};
+
+// var getAge = function(){
+//     return this.age;
+// }
+
+// var bound = getAge.bind(student);
+// console.log(bound());
 
