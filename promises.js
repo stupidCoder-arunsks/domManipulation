@@ -1,12 +1,135 @@
 console.log('Promises js....');
 
+// let posts = [
+//     { title: "Post one", description: "This is post one", category: 'child' },
+//     { title: "Post two", description: "This is post two", category: 'Adult' }
+// ];
+
+// function getPosts() {
+//     setTimeout(() => {
+//         let output = '';
+//         posts.forEach((post) => {
+//             output += `<li>${post.title}</li>`;
+//         });
+
+//         document.body.innerHTML = output;
+//     }, 1000);
+// }
+
+// function createPost(post) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+
+//             posts.push(post);
+//             const error = false;
+
+//             if (!error) {
+//                 resolve();
+//             }
+//             else {
+//                 reject('Something went worng while adding post');
+//             }
+//         }, 1000)
+//     })
+
+// }
+
+// function printHelloWorld(){
+//     return new Promise((resolve,reject) => {
+//         console.log("Hello World !");
+    
+//         if(5 === 6){
+//             resolve();
+//         }else {
+//             reject('Something went wrong in printHelloWorld..');
+//         }
+       
+//     });
+ 
+// }
+
+// function printHello(){
+//     console.log("Hello...")
+// }
+
+// createPost({ title: 'post three', description: 'this is post three' })
+//     .then(getPosts).then(printHelloWorld).then(printHello)
+//     .catch(err => console.log(err));
+
+// function deletePost() {
+//     return new Promise((resolve, reject) => {
+
+//         if (posts.length > 0) {
+//                 resolve();
+//         }
+//         else {
+//             reject('Error: Array is empty now')
+//         }
+      
+//     });
+// }
+
+
+// const timerId = setInterval(() => {
+//     deletePost().then(() => {
+//         posts.pop();
+//         let lastPost = document.querySelector('body').lastChild;
+//         lastPost.parentNode.removeChild(lastPost);
+//     })
+//         .catch(err => {
+//             console.log(err);
+//             clearInterval(timerId);
+//         });
+// }, 3000);
+
+// const promise1 =  Promise.resolve('hello World');
+// const promise2  = 10;
+// // const promise2 = 10;
+// const promise3 = new Promise((resolve,reject) =>
+//     setTimeout(resolve,2000,"Good bye"));
+
+// const promise4 = 'Hello arun';
+// const promise5 = new Promise((resolve,reject) => 
+// {
+//    setTimeout(() => {
+//         resolve();
+//         'Good bye';
+//    },2000);
+// });
+
+// Promise.all([promise1,promise2,promise3]).then(
+//     values => console.log(values));
+
+// console.log("promise 1: ",promise1);
+
+// Promise.all([promise1,promise2,promise3])
+// .then(
+//     values => console.log(values))
+//     .catch((Err) => console.log(Err));
+
+
+// const a = Promise.all([promise1,promise2,promise3]);
+
+// console.log('a' , a)
+// console.log('promise 1' , promise1)
+
+
+
+
 let posts = [
     { title: "Post one", description: "This is post one", category: 'child' },
     { title: "Post two", description: "This is post two", category: 'Adult' }
 ];
 
-function getPosts() {
-    setTimeout(function () {
+// async function loadPost(){
+   
+// }
+
+async function getPosts() {
+
+    await createPost()
+
+    setTimeout(() => {
         let output = '';
         posts.forEach((post) => {
             output += `<li>${post.title}</li>`;
@@ -19,7 +142,7 @@ function getPosts() {
 function createPost(post) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-
+           let post = { title: 'post three', description: 'this is post three' };
             posts.push(post);
             const error = false;
 
@@ -29,37 +152,11 @@ function createPost(post) {
             else {
                 reject('Something went worng while adding post');
             }
-        }, 2000)
+        }, 1000)
     })
-
 }
 
-function deletePost() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
+getPosts();
 
-            // createPost(posts);
-            const error = false;
-            
-            if(!error)
-            resolve();
-            else
-            reject('Something went wrong while deleting posts');
-
-            // posts.pop();
-            // createPost(posts);
-        }, 1000);
-    });
-}
-
-
-
-createPost({ title: 'post three', description: 'this is post three' })
-    .then(getPosts)
-    .catch(err => console.log(err));
-
-// deletePost().then(createPost).catch(err => console.log('err'));
-// deletePost();
-//  console.log(posts);
-// posts.pop();
-// console.log(posts);
+// createPost({ title: 'post three', description: 'this is post three' })
+//     .then(getPosts).catch(err => console.log(err));

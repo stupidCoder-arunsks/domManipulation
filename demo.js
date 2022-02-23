@@ -190,6 +190,7 @@
 // this.Hall.clean();
 // this.Garage.clean();
 // clean.call(this);
+// let objsOne = [];
 
 // class student {
 
@@ -201,6 +202,7 @@
 //         this.phoneNo = phoneNo,
 //         this.mark = mark,
 //         student.increaseCount();
+//         objsOne.push(this);
 //     }
 
 //     checkingEligibility(){
@@ -236,6 +238,16 @@
 // const karthi = new student(`karthi`,21,54321,80);
 // const ajith = new student(`ajith`,23,536721,30);
 // const vijay = new student(`vijay`,28,5432041,80);
+
+// let objs = [arun , kumar,karthi,ajith,vijay];
+// for(let i=0;i<objs.length;i++){
+//     objs[i].checkingEligibility();
+// }
+
+// console.log(objsOne);
+// for(let i=0;i<objsOne.length;i++){
+//     console.log(objsOne[i].name);
+// }
 
 // arun.checkingEligibility();
 // kumar.checkingEligibility();
