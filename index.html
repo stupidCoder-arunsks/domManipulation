@@ -121,16 +121,17 @@
       })
     })
 
+      // <li id = ${user.email} > ${user.name} ${user.email} 
+
     function showListOfRegisteredUserOnScreen(user){
 
       var parentNode = document.getElementById('listOfUsers');
 
-      childHtml = `<li id = ${user.email} > ${user.name} ${user.email} 
-                   <button onclick = deleteUser('${user.email}')> Delete </button>
-                   <button onclick = editUser('${user.email}','${user.name}')>  Edit  </button>
+      childHtml = `<li id = ${user._id} > ${user.name} ${user.email}
+                   <button onclick = deleteUser('${user._id}')> Delete </button>
+                   <button onclick = editUser('${user._id}','${user.name}')>  Edit  </button>
                    </li>`;
     
-
       parentNode.innerHTML +=  childHtml;
 
      }
@@ -155,9 +156,14 @@
      }
 
 
-     function deleteUser(email){
-       localStorage.removeItem(email);
-       removeItemFromScreen(email);
+     function deleteUser(id){
+       console.log(id);
+       axios.delete(`https://crudcrud.com/api/c222dfb2858d43be95b22666c4568c73/curdOperation/${id}`).
+       then(res => removeItemFromScreen(id))
+       .catch(err => console.log("Error while deleting the appoinment"));
+      //  removeItemFromScreen(id);
+      //  localStorage.removeItem(email);
+      //  removeItemFromScreen(email);
      }
 
      function removeItemFromScreen(email){
