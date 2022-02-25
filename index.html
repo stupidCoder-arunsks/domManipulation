@@ -52,7 +52,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
 
     <script>
-     
+        // axios.get("https://crudcrud.com/api/c222dfb2858d43be95b22666c4568c73/curdOperation")
+        // .then(response => {
+        //   showListOfRegisteredUserOnScreen(response.data);
+        // }).catch(err => {
+        //   document.body.innerHTML += 'Error while trying to fetch the data';
+        // })
+
     //  function saveToLocalStorageEvent(event){
     //    event.preventDefault();
      
@@ -68,6 +74,18 @@
     //    showListOfRegisteredUserOnScreen(obj);
 
     //  }
+
+    window.addEventListener("DOMContentLoaded" , () => {
+      console.log('window addEventListener method')
+      axios.get("https://crudcrud.com/api/c222dfb2858d43be95b22666c4568c73/curdOperation")
+        .then(response => {
+          for(var i=0;i<response.data.length;i++){
+            showListOfRegisteredUserOnScreen(response.data[i]);
+          }
+        }).catch(err => {
+          document.body.innerHTML += 'Error while trying to fetch the data';
+        })
+    });
 
     function storingDataToBackend(event){
        event.preventDefault();
