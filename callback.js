@@ -29,67 +29,50 @@
 
 // console.log("Callback.js....");
 
-let posts = [
-    {title:"Post one" , description:"This is post one" ,category:'child'},
-    {title:"Post two" , description:"This is post two",category:'Adult'}
-];
-
-function getPosts(){
-    setTimeout(function(){
-      let output = '';
-  
-      posts.forEach((post) => {
-                     output += `<li>${post.title}</li>`;
-                  });
-
-    //   console.log(output);
-      document.body.innerHTML = output;
-    },1000);
-  }
-
-  function createPost(post){
-
-    return new Promise((resolve,reject) => {
-      
-        setTimeout(() => {
-         
-                posts.push(post);
-                const error = false;
-    
-            if(!error){
-            // getPosts(); // doubt 
-            resolve();
-            }else {
-                reject();
-            }
-          },2000)
-    })
-    
-}
-
-// getPosts();
-createPost({title:'post three' , description:'this is post three'})
-.then(getPosts)
-.catch(err => console.log(err));
-
+// let posts = [
+//     {title:"Post one" , description:"This is post one" ,category:'child'},
+//     {title:"Post two" , description:"This is post two",category:'Adult'}
+// ];
 
 // function getPosts(){
-//   setTimeout(function(){
-//     let output = '';
+//     setTimeout(function(){
+//       let output = '';
+  
+//       posts.forEach((post) => {
+//                      output += `<li>${post.title}</li>`;
+//                   });
 
-//     posts.forEach((post) => {
-//                    output += `<li>${post.title}</li>`;
-//                 });
-//     //  console.log("posts length :" + posts.length)
-// // ------- doubt one -----
+//     //   console.log(output);
+//       document.body.innerHTML = output;
+//     },1000);
+//   }
 
-//     // for(let i=0;i < posts.length;i++){
-//     //    output += `<li>${posts[i].title}<\li>`;
-//     // }
-//     console.log(output);
-//     document.body.innerHTML = output;
-//   },1000);
+//   function createPost(post){
+
+//     return new Promise((resolve,reject) => {
+      
+//         setTimeout(() => {
+         
+//                 posts.push(post);
+//                 const error = false;
+    
+//             if(!error){
+//             // getPosts(); // doubt 
+//             resolve();
+//             }else {
+//                 reject();
+//             }
+//           },2000)
+//     })
+    
 // }
+
+// // getPosts();
+// createPost({title:'post three' , description:'this is post three'})
+// .then(getPosts)
+// .catch(err => console.log(err));
+
+
 
 // function createPost(post,callback){
 
@@ -126,3 +109,41 @@ createPost({title:'post three' , description:'this is post three'})
 // createPost({title:'Post three' , description:"This is third post"});
 // // createPost({title:'Post three' , description:"This is third post"},getPosts); // doubt 3 why i want to pass funtion in argument instead of calling that global function in there itself
 // console.log(posts);
+
+let posts = [
+    {title:'post one' , description:'This is post One', createdAt: new Date().getTime()},
+    {title:'post two' ,description: 'This is post Two' , createdAt:new Date().getTime()},
+];
+
+
+function getPosts(){
+  setTimeout(function(){
+    let output = '';
+
+   // posts.forEach((post) => {
+    //                output += `<li>${post.title}</li>`;
+    //             });
+    //  console.log("posts length :" + posts.length)
+// ------- doubt one -----li
+
+    for(let i=0;i < posts.length;i++){
+       output += `<li>${posts[i].title}</li>`;
+    }
+    console.log(output);
+    document.body.innerHTML = output;
+  },1000);
+}
+
+  function createPost(post){
+
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+                posts.push(post);
+                resolve();
+          },2000)
+    })
+    
+}
+
+createPost({title:'Post three' , description:"This is third post"})
+.then(getPosts);

@@ -18,7 +18,7 @@
     <label id = 'user-email'></label>
 
     <section class="container">
-      <form id="my-form" onsubmit='saveToLocalStorageEvent(event)'>
+      <form id="my-form" onsubmit='storingDataToBackend(event)'>
         <h1>Add User</h1>
         <div class="msg"></div>
         <div>
@@ -29,7 +29,7 @@
           <label for="email">Email:</label>
           <input type="text" id="email" name="emailId">
         </div>
-        <input id = "submit-btn" class="btn" type="submit" value="Submit" onclick= 'saveToLocalStorageEvent'>
+        <input id = "submit-btn" class="btn" type="submit" value="Submit" onclick= 'storingDataToBackend'>
       </form>
 
       <ul id='listOfUsers'></ul>
@@ -48,9 +48,28 @@
 
     
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
+
     <script>
      
-     function saveToLocalStorageEvent(event){
+    //  function saveToLocalStorageEvent(event){
+    //    event.preventDefault();
+     
+    //    var userName = event.target.username.value;
+    //    var email = event.target.emailId.value;
+
+    //    const obj = {
+    //        'name': userName,
+    //        'email': email
+    //    };
+
+    //    localStorage.setItem(obj.email , JSON.stringify(obj));
+    //    showListOfRegisteredUserOnScreen(obj);
+
+    //  }
+
+    function storingDataToBackend(event){
        event.preventDefault();
      
        var userName = event.target.username.value;
@@ -61,8 +80,19 @@
            'email': email
        };
 
-       localStorage.setItem(obj.email , JSON.stringify(obj));
-       showListOfRegisteredUserOnScreen(obj);
+       axios.post(
+         "https://crudcrud.com/api/c222dfb2858d43be95b22666c4568c73/curdOperation",
+          obj, 
+         ).then(response => {
+           console.log('response ' , response);
+           showListOfRegisteredUserOnScreen(response.data);
+         }).catch(err => {
+           console.log(err);
+           document.body.innerHTML += `<h3> something went worng</h3>`
+         })
+
+      //  localStorage.setItem(obj.email , JSON.stringify(obj));
+      //  showListOfRegisteredUserOnScreen(obj);
 
      }
 
