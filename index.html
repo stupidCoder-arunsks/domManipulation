@@ -129,20 +129,22 @@
 
       childHtml = `<li id = ${user._id} > ${user.name} ${user.email}
                    <button onclick = deleteUser('${user._id}')> Delete </button>
-                   <button onclick = editUser('${user._id}','${user.name}')>  Edit  </button>
+                   <button onclick = editUser('${user._id}','${user.name}','${user.email}')>  Edit  </button>
                    </li>`;
     
       parentNode.innerHTML +=  childHtml;
 
      }
 
-     function editUser(email, name){
-       console.log("incoming >>> " +email + " " +name);
-       removeItemFromScreen(email);
-
-       if(localStorage.getItem(email)){
-        localStorage.removeItem(email);
-       }
+     function editUser(id,name,email){
+       console.log('Inside edit user', id , name,email);
+      //  console.log("incoming >>> " +user.email + " " +user.name +" " + user._id);
+      //  removeItemFromScreen(id);
+       deleteUser(id);
+      
+      //  if(localStorage.getItem(email)){
+      //   localStorage.removeItem(email);
+      //  }
 
        var labelName = document.getElementById('name');
        var labelEmail = document.getElementById('email');
@@ -157,7 +159,7 @@
 
 
      function deleteUser(id){
-       console.log(id);
+      //  console.log(id);
        axios.delete(`https://crudcrud.com/api/c222dfb2858d43be95b22666c4568c73/curdOperation/${id}`).
        then(res => removeItemFromScreen(id))
        .catch(err => console.log("Error while deleting the appoinment"));
