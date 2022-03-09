@@ -97,21 +97,47 @@ class BST {
         }
         return output;
     };
-       
+
+// finding minimum element in BST
+getMinVal() {
+    if (this.root === null) {
+       console.log("Empty tree!");
+    }
+    let currNode = this.root;
+ 
+    while (currNode.left !== null) {
+       currNode = currNode.left;
+    }
+    return currNode.data;
+ }
+ 
+ getMaxVal() {
+    if (this.root === null) {
+       console.log("Empty tree!");
+    }
+    let currNode = this.root;
+ 
+    while (currNode.right !== null) {
+       currNode = currNode.right;
+    }
+    return currNode.data;
+ }
+ 
 }
+
 
 
 
 const bst = new BST();
 
-
 bst.add(1);
-bst.add(null);
 bst.add(2);
 bst.add(3);
-var result = bst.preorderTraversal();
+console.log(bst.getMaxVal());
+console.log(bst.getMinVal());
+// var result = bst.getMinVal();
 
-console.log(result);
+// console.log(result);
 
 // var preOrder =  bst.preOrder();
 // console.log('pre Order ' , preOrder);
